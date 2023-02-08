@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import {
   ApolloClient,
   ApolloProvider,
@@ -8,7 +7,8 @@ import {
 } from "@apollo/client";
 import RepoFinder from "./components/repoFinder/RepoFinder";
 
-const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || ""; // <-- TODO: place your token here or in a .env file
+// TODO: place your token here or in a .env file
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || "";
 
 const client = new ApolloClient({
   link: new HttpLink({

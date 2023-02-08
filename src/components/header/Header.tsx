@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Header = styled.header`
+const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
@@ -33,22 +33,26 @@ const Form = styled.form`
     border: 1px solid #40ef40;
   }
 
-  input[type="submit"] {
+  input[type="button"] {
     margin-left: 0.5rem;
     cursor: pointer;
   }
 `;
 
-type SearchProps = {
+type HeaderProps = {
   onSubmit: (query: string) => void;
 };
 
-export default function Search(props: SearchProps) {
+/**
+ * This component was built decoupled from any functional logic.
+ * This way it can be moved later to a component library.
+ */
+export default function Header(props: HeaderProps) {
   const { onSubmit } = props;
   const [query, setQuery] = useState<string>("");
 
   return (
-    <Header>
+    <StyledHeader>
       <div>
         <h3>Github repositories</h3>
         <span>
@@ -74,12 +78,12 @@ export default function Search(props: SearchProps) {
         />
 
         <input
-          type="submit"
+          type="button"
           value="Search"
           disabled={!query}
           onClick={() => onSubmit(query)}
         />
       </Form>
-    </Header>
+    </StyledHeader>
   );
 }
