@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {
+  ApolloClient,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || ""; // <-- TODO: place your token here or in a .env file
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://api.github.com/graphql",
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`,
+    },
+  }),
+  cache: new InMemoryCache(),
+});
+
+export default function App() {
+  return <ApolloProvider client={client}>Apollo working!</ApolloProvider>;
 }
-
-export default App;
