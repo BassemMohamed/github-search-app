@@ -8,7 +8,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/bassemmohamed/github-search-app?style=social)](https://github.com/BassemMohamed/github-search-app/network/members)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/96ad908f-d139-4787-aaf3-26f5e6b1b2bb/deploy-status)](https://app.netlify.com/sites/github-repo-search-app/deploys)
 
-Project name is a Github Search App that allows users to search for github repos.
+Project name is a Github Search App, it allows users to search for github repositories. The app is live at https://github-repo-search-app.netlify.app/ using Netlify.
 
 ## Prerequisites
 
