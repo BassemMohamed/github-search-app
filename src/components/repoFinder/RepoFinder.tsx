@@ -1,5 +1,5 @@
-import { ApolloError, useQuery } from "@apollo/client";
-import React, { useState } from "react";
+import { ApolloError, useLazyQuery } from "@apollo/client";
+import React from "react";
 import styled from "styled-components";
 import SEARCH_REPOS_QUERY from "../../queries/searchRepo";
 import Header from "../header/Header";
@@ -31,18 +31,14 @@ const Error = ({ error }: { error: ApolloError }) => (
 );
 
 export default function RepoFinder() {
-  const [query, setQuery] = useState<string>("");
-  const { loading, error, data } = useQuery(SEARCH_REPOS_QUERY, {
-    variables: { query },
-  });
+  const [getRepos, { loading, error, data }] = useLazyQuery(SEARCH_REPOS_QUERY);
 
-  const reposLoaded = query && data && !loading;
   const repos = data?.search.edges;
 
   return (
     <StyledRepoFinder>
       {/* Header */}
-      <Header onSubmit={(query) => setQuery(query)}></Header>
+      <Header onSubmit={(query) => getRepos({ variables: { query } })}></Header>
 
       {/* Main */}
       <div>
@@ -50,10 +46,10 @@ export default function RepoFinder() {
         {error && <Error error={error} />}
 
         {/* Search output */}
-        {reposLoaded && repos.map((item: any) => item.node.name)}
+        {repos && repos.map((item: any) => item.node.name)}
 
         {/* No search query */}
-        {!reposLoaded && (
+        {!loading && !repos && (
           <p>
             Start by searching for a github repository. For example, Try
             "Arabic-English-Subtitling"{" "}
