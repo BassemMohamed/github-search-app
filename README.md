@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Github Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 
-## Available Scripts
+![GitHub repo size](https://img.shields.io/github/repo-size/bassemmohamed/github-search-app)
+[![GitHub contributors](https://img.shields.io/github/contributors/bassemmohamed/github-search-app)](https://github.com/BassemMohamed/github-search-app/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/bassemmohamed/github-search-app?style=social)](https://github.com/BassemMohamed/github-search-app/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/bassemmohamed/github-search-app?style=social)](https://github.com/BassemMohamed/github-search-app/network/members)
 
-In the project directory, you can run:
+Project name is a Github Search App that allows users to search for github repos and pin them.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Before you begin, ensure you have met the following requirements:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- You have installed node
+- You have installed npm
 
-### `npm test`
+## Installing Github Search App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To install Github Search App, follow these steps:
 
-### `npm run build`
+1. Clone the repo
+2. Open terminal in the project's folder
+3. run `npm install`
+4. Clone the `.env.default` file to a new `.env` file.
+5. Insert your [GitHub Authentication Token](https://github.com/settings/tokens/new) in the `.env` file
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Using Github Search App
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To use Github Search App, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Install the app using the above steps
+2. run `npm start`
 
-### `npm run eject`
+## Contact
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you want to contact me you can reach me at `bassem.i@protonmail.com`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses the following license: [GNU](https://choosealicense.com/licenses/gpl-3.0/).
