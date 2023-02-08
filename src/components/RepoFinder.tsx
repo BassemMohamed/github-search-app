@@ -1,8 +1,8 @@
 import { ApolloError, useLazyQuery } from "@apollo/client";
 import React from "react";
 import styled from "styled-components";
-import SEARCH_REPOS_QUERY from "../../queries/searchRepo";
-import Header from "../header/Header";
+import SEARCH_REPOS_QUERY from "../queries/searchRepo";
+import { Header } from "./";
 
 const StyledRepoFinder = styled.div`
   > div {
