@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
+  width: 400px;
   padding: 0.75rem;
   text-align: left;
   position: relative;
-  border: 1px solid #555;
+  border: 1px solid #3c3c3c;
   border-radius: 1rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 
@@ -22,8 +23,11 @@ const StyledCard = styled.div`
 `;
 
 const CardContent = styled.div`
+  display: flex;
+  align-items: center;
+
   p {
-    margin: 0;
+    margin: 0 0 0 0.5rem;
   }
 `;
 
@@ -41,15 +45,16 @@ type CardProps = {
 export default function Card(props: CardProps) {
   const { title, url, description, author } = props;
 
+  const truncateString = (string = "", maxLength = 200) =>
+    string.length > maxLength ? `${string.substring(0, maxLength)}…` : string;
+
   return (
     <StyledCard>
       <h4 onClick={() => window.open(url)}>{title}</h4>
-      <p>{description}</p>
+      <p>{truncateString(description)}</p>
       <CardContent>
-        <div>
-          <img src={author.avatar} alt={author.name}></img>
-          <p>{author.name}</p>
-        </div>
+        <img src={author.avatar} alt={author.name}></img>
+        <p>{author.name}</p>
       </CardContent>
     </StyledCard>
   );

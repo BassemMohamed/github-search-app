@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import SEARCH_REPOS_QUERY from "../queries/searchRepo";
 import { Header } from "./";
+import RepoGrid from "./RepoGrid";
 
 const StyledRepoFinder = styled.div`
   > div {
@@ -33,23 +34,25 @@ const Error = ({ error }: { error: ApolloError }) => (
 export default function RepoFinder() {
   const [getRepos, { loading, error, data }] = useLazyQuery(SEARCH_REPOS_QUERY);
 
-  const repos = data?.search.edges;
+  const response = data?.search.edges;
 
   return (
     <StyledRepoFinder>
       {/* Header */}
       <Header onSubmit={(query) => getRepos({ variables: { query } })}></Header>
 
-      {/* Main */}
+      {/* Main content */}
       <div>
         {loading && <Loading />}
         {error && <Error error={error} />}
 
         {/* Search output */}
-        {repos && repos.map((item: any) => item.node.name)}
+        {response && (
+          <RepoGrid repos={response.map((item: any) => item.node)} />
+        )}
 
         {/* No search query */}
-        {!loading && !repos && (
+        {!loading && !response && (
           <p>
             Start by searching for a github repository. For example, Try
             "Arabic-English-Subtitling"{" "}
